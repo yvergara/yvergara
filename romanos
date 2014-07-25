@@ -1,0 +1,44 @@
+using System;
+
+namespace yairRomanos2
+{
+	class MainClass
+	{
+		public static void Main (string[] args)
+		{
+			String[][] romanos = 
+			{
+				new string[][]{"M", "MM", "MMM"};															// Grupo de números romanos
+				new string[][]{"C","CC","CCC","CD","D","DC","DCC","DCCC","CM"};
+				new string[][]{"X","XX","XXX","XL","L","LX","LXX","LXXX","XC"};
+				new string[][]{"I","II","III","IV","V","VI","VII","VIII","IX"};
+			};
+
+			int numero = 0, i, j,  tamanio, multi = 1000;												// Solicitud de datos al usaurio
+			Console.WriteLine ("Digite un numero romano");
+			string entrada = Console.ReadLine().ToUpper();
+			string romano = entrada;
+
+			for(i = 0; i < romanos[i].Lenght-1; i++)														// Recrorrido del grupo de números romanos
+			{
+				for (j = romanos[i].Lenght-1; j>=0; j--)
+					tamanio = romanos[i][j].lenght;
+					if (tamanio <= romano.lenght && romanos[i][j]. Equals(romano.Substring(0.tamanio)))
+					{
+						numero += (j+i)* multi;
+						romano = romano.Substring(tamanio);
+						break;
+					}
+			}
+			multi /= 10;
+		}
+		if (romano.lenght == 0)
+		{
+			Console.WriteLine("\n" + entrada + "=" + numero);
+		}
+		else
+		{
+			Console.WriteLine("\nEl numero original ingresado" + entrada + "es incorrecto");
+		}
+	}
+}
